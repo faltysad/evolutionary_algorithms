@@ -12,16 +12,17 @@ let cycles = 100;
 let slider;
 
 function setup() {
-  createCanvas(400, 600);
-  slider = createSlider(1, 1000, 1);
+  createCanvas(600, 400);
+  slider = createSlider(1, 100, 1);
   for (let i = 0; i < TOTAL; i++) {
     birds[i] = new Bird();
   }
 }
 
 function draw() {
+  console.log(birds[0].score);
   for (let n = 0; n < slider.value(); n++) {
-  if (counter % 75 == 0) {
+  if (counter % 175 == 0) {
     pipes.push(new Pipe());
   }
   counter++;
