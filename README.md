@@ -264,4 +264,45 @@ function pickOne() {
 // and in the calculateFitness() change for(let bird of birds) { ... }
 // to ... of savedBrids on both places!!
 for(let bird of savedBirds) { ... }
+// DONE, RUN THE GAME!!
+```
+
+
+
+### Lets speed the training part up!
+#### We need to separate the drawing from the game's logic
+
+`./code/sketch.js`
+
+```javascript
+// In the draw(), lets take the pipes.show()
+// and in the bottom for loop, where we call bird.show()
+// lets also separate that
+// and now, at the end of the draw() and from the bottom,
+// take the background (0)
+// and now on the end of the draw(), put this:
+
+// All the drawing stuff
+background(0);
+
+for (let bird of birds) {
+    bird.show();
+}
+
+for (let pipe of pipes) {
+    pipe.show();
+}
+
+// now we need to wrap whole body of draw() with for loop:
+for (let n = 0; n < cycles; n++) {
+    ...draw()
+}
+// and create let cycles on the top of the file:
+let cycles = 100;
+// and also on the top, add slider
+let slider;
+// and now in setup(), after createCanvas()
+slider = createSlider(1, 100, 1);
+// and in the for loop that wraps draw(), change cycles as following:
+for (let n = 0; n < slider.value(); n++) { ... }
 ```

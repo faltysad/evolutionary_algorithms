@@ -8,23 +8,25 @@ var birds = [];
 let savedBirds = [];
 var pipes = [];
 let counter = 0;
+let cycles = 100;
+let slider;
 
 function setup() {
   createCanvas(400, 600);
+  slider = createSlider(1, 1000, 1);
   for (let i = 0; i < TOTAL; i++) {
     birds[i] = new Bird();
   }
 }
 
 function draw() {
-  background(0);
+  for (let n = 0; n < slider.value(); n++) {
   if (counter % 75 == 0) {
     pipes.push(new Pipe());
   }
   counter++;
 
   for (var i = pipes.length - 1; i >= 0; i--) {
-    pipes[i].show();
     pipes[i].update();
 
     for(let j = birds.length - 1; j >= 0; j--) {
@@ -48,7 +50,6 @@ function draw() {
   for (let bird of birds) {
     bird.think(pipes);
     bird.update();
-    bird.show();
   }
 
   if (birds.length === 0) {
@@ -57,7 +58,16 @@ function draw() {
     pipes = [];
 }
 
+background(0);
 
+for (let bird of birds) {
+    bird.show();
+}
+
+for (let pipe of pipes) {
+    pipe.show();
+}
+  }
 }
 
 // function keyPressed() {
