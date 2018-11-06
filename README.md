@@ -182,7 +182,7 @@ savedBirds.push(birds.splice(j, 1)[0]);
  let bird = random(savedBirds);
  return bird;
 
- // and in calculateFitness()
+ // and in nextGeneration()
  // after the for loop where we pickOne, add:
  savedBirds = []; 
 ```
