@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/falty.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section 
+				data-background-position="bottom"
+				data-background-size="50%"
+				data-background-image="https://cdn.images.express.co.uk/img/dynamic/151/590x/evolution-1011341.jpg?r=1535823066197">
+					<h3>Evolutionary algorithms</h3>
+				</section>
+				<section>
+					<h3>Outline</h3>
+					<ul>
+						<li>Darwinian evolutionary theory </li>
+						<li>Mimicking nature</li>
+						<li>Genetic algorithms (GA)</li>
+						<li>GA vs bruteforce</li>
+						<li>GA in action</li>
+					</ul>
+				</section>
+				<section>Inspired by nature</section>
+				<section>"God created not species but the algorithm for creating species."</section>
+				<section><h3>0 - 1,000,000,000 ?</h3></section>
+				<section 
+				data-background-position="bottom"
+				data-background-image="./img/monkey2.png">
+					<h4 class="highlight">Infinite monkey theorem</h4>
+				</section>
+				<section>
+					<div>
+						<i><p class="big">1</p></i>
+						<p class="big">in</p>
+						<i><span class="big">66,555,937,033,867,822,607,895,549,241,096,482,953,017,615,834,735,226,163</span></i>
+						<i><p class="big fragment fade-in">(9,719,096,182,010,563,073,125,591,133,903,305,625,605,017 years)</p></i>
+					</div>
+				</section>
+				<section>
+					<h5>Bruteforce x Evolution</h5>
+				</section>
+				<section>
+					<h3>Darwinian Natural Selection</h3>
+				</section>
+				<section>
+					<ul>
+						<li><b>Heredity</b> - <i>children receive the properties of their parents</i></li>
+						<li><b>Variation</b> - <i>there must be a variety of traits present in the population</i></li>
+						<li><b>Selection</b> - <i>“survival of the fittest”</i></li>
+					</ul>
+				</section>
+				<section>
+					<ul>
+						<li><i> Step one - <b>Initialization</b></i></li>
+						<li><i>Step two - <b>Selection</b></i></li>
+						<li><i>Step three - <b>Reproduction</b></i></li>
+					</ul>
+					<aside class="notes">
+							Step 1: Initialize. Create a population of N elements, each with randomly generated DNA.
+							<br>
+							Step 2: Selection. Evaluate the fitness of each element of the population and build a mating pool.
+							<br>
+							Step 3: Reproduction. Repeat N times:
+
+							a) Pick two parents with probability according to relative fitness.
+							b) Crossover—create a “child” by combining the DNA of these two parents.
+							c) Mutation—mutate the child’s DNA based on a given probability.
+							d) Add the new child to a new population.
+							Replace the old population with the new population and return to Step 2.
+					</aside>
+				</section>
+				<section>
+					<h3>Flappy bird neuroevolution</h3>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				controls: false,
+				progress: false,
+				transition: 'none',
+				backgroundTransition: 'none',
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
